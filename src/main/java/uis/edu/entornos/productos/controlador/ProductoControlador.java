@@ -23,6 +23,7 @@ import uis.edu.entornos.productos.servicio.ProductoService;
  *
  * @author Karolina Aponte
  */
+
 @RestController
 @RequestMapping("/api/producto")
 public class ProductoControlador {
@@ -31,7 +32,7 @@ public class ProductoControlador {
     ProductoService productoService;
     
     @GetMapping("/List")
-    public List<Producto> cargarUsuarios(){
+    public List<Producto> cargarProductos(){
         return productoService.getProducto();
     }
     

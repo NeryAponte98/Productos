@@ -20,7 +20,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = Producto.TABLE_NAME)
 public class Producto {
-    public static final String TABLE_NAME = "productos";
+    public static final String TABLE_NAME = "producto";
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,7 @@ public class Producto {
     //Relacion de muchos a uno entre usuario y tipodocumento 
     @ManyToOne
     @JoinColumn(name = "idProveedor")
-    private Proveedor proveedor;
+    private Proveedor idProveedor;
     
     @Column(name = "ivaCompra")
     private Double ivaCompra;
@@ -45,7 +45,7 @@ public class Producto {
 
     public Producto(Long id, Proveedor proveedor, Double ivaCompra, String nombre, Double precioCompra, Double precioVenta) {
         this.id = id;
-        this.proveedor = proveedor;
+        this.idProveedor = proveedor;
         this.ivaCompra = ivaCompra;
         this.nombre = nombre;
         this.precioCompra = precioCompra;
@@ -61,11 +61,11 @@ public class Producto {
     }
 
     public Proveedor getProveedor() {
-        return proveedor;
+        return idProveedor;
     }
 
     public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
+        this.idProveedor = proveedor;
     }
 
     public Double getIvaCompra() {
