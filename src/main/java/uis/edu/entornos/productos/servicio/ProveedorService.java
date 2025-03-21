@@ -42,6 +42,11 @@ public class ProveedorService implements IProveedorService{
     public Proveedor nuevoProveedor(Proveedor proveedor) {
         return proveedorRepositorio.save(proveedor);
     }
+    
+    @Override
+    public Proveedor editarProveedor(Proveedor proveedor) {
+        return proveedorRepositorio.save(proveedor);
+    }
 
     @Override
     public int borrarProveedor(Long id) {

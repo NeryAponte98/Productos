@@ -42,6 +42,11 @@ public class ProductoService implements IProductoService{
     public Producto nuevoProducto(Producto producto) {
         return productoRepositorio.save(producto);
     }
+    
+    @Override
+    public Producto editarProducto(Producto producto) {
+        return productoRepositorio.save(producto);
+    }
 
     @Override
     public int borrarProducto(Long id) {

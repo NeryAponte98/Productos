@@ -49,19 +49,21 @@ public class ProveedorControlador {
     
     //Actualizar 
     @PutMapping("/{id}")
-    public ResponseEntity<Proveedor> editar(@RequestBody Proveedor proveedor){
-        Proveedor obj = proveedorService.buscarProveedor(proveedor.getId());
+    public ResponseEntity<Proveedor> editar(@PathVariable Long id, @RequestBody Proveedor proveedor){
+        Proveedor obj = proveedorService.buscarProveedor(id);
         if (obj != null) {
-            obj.setId(proveedor.getId());
+            //obj.setId(proveedor.getId());
             obj.setCiudad(proveedor.getCiudad());
             obj.setDireccion(proveedor.getDireccion());
             obj.setNombre(proveedor.getNombre());
             obj.setTelefono(proveedor.getTelefono());
             obj.setNit(proveedor.getNit());
+            
+            Proveedor proveedorActualizado = proveedorService.editarProveedor(obj);
+            return new ResponseEntity<>(proveedorActualizado, HttpStatus.OK);
         }else{
             return new ResponseEntity<>(obj, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(obj, HttpStatus.OK);
     }
     
     //Eliminar usuario

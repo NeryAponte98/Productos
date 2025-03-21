@@ -21,6 +21,9 @@ public interface IProductoService {
     //Crear registro u objeto
     Producto nuevoProducto(Producto producto);
     
+    //Actualizar registro u objeto
+    Producto editarProducto(Producto producto);
+    
     //Eliminar un objeto
     int borrarProducto(Long id);
 }

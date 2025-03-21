@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.math.BigDecimal;
 
 /**
  *
@@ -32,20 +33,20 @@ public class Producto {
     private Proveedor idProveedor;
     
     @Column(name = "ivaCompra")
-    private Double ivaCompra;
+    private BigDecimal ivaCompra;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "precioCompra")
-    private Double precioCompra;
+    private BigDecimal precioCompra;
     @Column(name = "precioVenta")
-    private Double precioVenta;
+    private BigDecimal precioVenta;
 
     public Producto() {
     }
 
-    public Producto(Long id, Proveedor proveedor, Double ivaCompra, String nombre, Double precioCompra, Double precioVenta) {
+    public Producto(Long id, Proveedor idProveedor, BigDecimal ivaCompra, String nombre, BigDecimal precioCompra, BigDecimal precioVenta) {
         this.id = id;
-        this.idProveedor = proveedor;
+        this.idProveedor = idProveedor;
         this.ivaCompra = ivaCompra;
         this.nombre = nombre;
         this.precioCompra = precioCompra;
@@ -60,19 +61,19 @@ public class Producto {
         this.id = id;
     }
 
-    public Proveedor getProveedor() {
+    public Proveedor getIdProveedor() {
         return idProveedor;
     }
 
-    public void setProveedor(Proveedor proveedor) {
-        this.idProveedor = proveedor;
+    public void setIdProveedor(Proveedor idProveedor) {
+        this.idProveedor = idProveedor;
     }
 
-    public Double getIvaCompra() {
+    public BigDecimal getIvaCompra() {
         return ivaCompra;
     }
 
-    public void setIvaCompra(Double ivaCompra) {
+    public void setIvaCompra(BigDecimal ivaCompra) {
         this.ivaCompra = ivaCompra;
     }
 
@@ -84,23 +85,23 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public Double getPrecioCompra() {
+    public BigDecimal getPrecioCompra() {
         return precioCompra;
     }
 
-    public void setPrecioCompra(Double precioCompra) {
+    public void setPrecioCompra(BigDecimal precioCompra) {
         this.precioCompra = precioCompra;
     }
 
-    public Double getPrecioVenta() {
+    public BigDecimal getPrecioVenta() {
         return precioVenta;
     }
 
-    public void setPrecioVenta(Double precioVenta) {
+    public void setPrecioVenta(BigDecimal precioVenta) {
         this.precioVenta = precioVenta;
     }
+    
+    
 
-    
-    
-    
+
 }

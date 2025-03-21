@@ -41,30 +41,33 @@ public class ProductoControlador {
         return productoService.buscarProducto(id); 
     }
     
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Producto> agregar(@RequestBody Producto producto){
         Producto obj = productoService.nuevoProducto(producto);
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
     
-    //Actualizar usuario
-    @PutMapping("/")
-    public ResponseEntity<Producto> editar(@RequestBody Producto producto){
-        Producto obj = productoService.buscarProducto(producto.getId());
+    //Actualizar
+    @PutMapping("/{id}")
+    public ResponseEntity<Producto> editar(@PathVariable Long id, @RequestBody Producto producto){
+        Producto obj = productoService.buscarProducto(id);
         if (obj != null) {
-            obj.setId(producto.getId());
-            obj.setProveedor(producto.getProveedor());
+            //obj.setId(producto.getId());
+            obj.setIdProveedor(producto.getIdProveedor());
             obj.setIvaCompra(producto.getIvaCompra());
             obj.setNombre(producto.getNombre());
             obj.setPrecioCompra(producto.getPrecioCompra());
             obj.setPrecioVenta(producto.getPrecioVenta());
+            
+            Producto productoActualizado = productoService.editarProducto(obj);
+            return new ResponseEntity<>(productoActualizado, HttpStatus.OK);
         }else{
             return new ResponseEntity<>(obj, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(obj, HttpStatus.OK);
+        
     }
     
-    //Eliminar usuario
+    //Eliminar
     @DeleteMapping("/{id}")
     public ResponseEntity<Producto> eliminar(@PathVariable Long id){
         Producto obj = productoService.buscarProducto(id);

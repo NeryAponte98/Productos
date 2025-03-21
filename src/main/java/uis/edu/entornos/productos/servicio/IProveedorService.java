@@ -22,6 +22,9 @@ public interface IProveedorService {
     //Crear registro u objeto
     Proveedor nuevoProveedor(Proveedor proveedor);
     
+    //Actualizar registro u objeto
+    Proveedor editarProveedor(Proveedor proveedor);
+    
     //Eliminar un objeto
     int borrarProveedor(Long id);
     
